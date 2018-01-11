@@ -451,7 +451,7 @@ def find_class(node,p):
     else:
         find_class(node['children'][pos],p)
                 
-for itr in range(10):
+for itr in range(1):
     random.shuffle(pattern_temp)
     for j in range(temp_counter):
         for k in range(ninputs):
