@@ -1,4 +1,5 @@
 import wfdb
+import wfdb
 from IPython.display import display
 
 record1 = wfdb.rdsamp('Sleep_MIT_Dataset/slp01a')
@@ -9,7 +10,16 @@ record2 = wfdb.rdsamp('Sleep_MIT_Dataset/slp02b')
 
 signals1, fields1 = wfdb.srdsamp('Sleep_MIT_Dataset/slp01a', sampfrom=1, sampto = record1.siglen)
 
-signals2, fields2 = wfdb.srdsamp('Sleep_MIT_Dataset/slp02b', sampfrom=1, sampto = record2.siglen)
+#signals2, fields2 = wfdb.srdsamp('Sleep_MIT_Dataset/slp02b', sampfrom=1, sampto = record2.siglen)
+
+#print len(fields1)
+
+for i in range(len(signals1)):
+	print signals1[i]
+	print "\n"
+
+
+
 '''
 file1 = open("Sleep_MIT_Dataset/slp01a.dat", "r")
 
