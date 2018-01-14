@@ -13,8 +13,8 @@ def annotation_features(Data_Filename, Annotation_Filename, data = []):
 	for item in annotations:
 		value = []
 
-		#if item[1][0] is 'D' :
-		#	continue
+		if annotations.index(item) == 0 :
+			continue
 
 		if int(item[2]) < int(record.siglen):
 
@@ -22,38 +22,37 @@ def annotation_features(Data_Filename, Annotation_Filename, data = []):
 			value.append(item[7])
 			data.append(value)
 
-	#return data
+## Function to load the dataset as list of lists
+def load_data():
+	## Initializing list
+	data = []
+	## Appending all features and labels in the list
+	annotation_features('slp01a', "annotations1", data)
+	#annotation_features('slp01b', "annotations2", data)
+	annotation_features('slp02a', "annotations3", data)
+	annotation_features('slp02b', "annotations4", data)
+	annotation_features('slp3', "annotations5", data)
+	annotation_features('slp4', "annotations6", data)
+	annotation_features('slp14', "annotations7", data)
+	annotation_features('slp16', "annotations8", data)
+	annotation_features('slp32', "annotations9", data)
+	annotation_features('slp37', "annotations10", data)
+	annotation_features('slp41', "annotations11", data)
+	annotation_features('slp45', "annotations12", data)
+	annotation_features('slp48', "annotations13", data)
+	annotation_features('slp59', "annotations14", data)
+	annotation_features('slp60', "annotations15", data)
+	annotation_features('slp61', "annotations16", data)
+	annotation_features('slp66', "annotations17", data)
+	#annotation_features('slp67x', "annotations18", data)
 
-data = []
+	for d in data:
+		print d
+	print len(data)
 
-annotation_features('slp01a', "annotations1", data)
+load_data()
 
-for d in data:
-	print d
-
-# function to load and add data from text file
-#def append_from_text(previous_data, newfile_path)
-
-
-### original_data = [i.strip().split() for i in open("Dataset_Modified_Form/slp01b.txt").readlines()]
-
-#print annotations
-#print original_data
-
-
-
-
-
-		
-	#print item
-	#print "\n"
-
-
-
-
-'''annotations1 = [i.strip().split() for i in open("Dataset_Modified_Form/annotations5.txt").readlines()]
-
-#original_data1 = [i.strip().split() for i in open("Dataset_Modified_Form/slp14.txt").readlines()]
+'''
 
 
 for item in annotations1:
