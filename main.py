@@ -1,5 +1,6 @@
 ## library to play with physionet datasets
 import wfdb
+from random import shuffle
 
 ## Function to extract features from data file and labels from annotaion file and link them.
 ## File name inputs are without formats.
@@ -23,9 +24,8 @@ def annotation_features(Data_Filename, Annotation_Filename, data = []):
 			data.append(value)
 
 ## Function to load the dataset as list of lists
-def load_data():
-	## Initializing list
-	data = []
+def load_data(data = []):
+	
 	## Appending all features and labels in the list
 	annotation_features('slp01a', "annotations1", data)
 	#annotation_features('slp01b', "annotations2", data)
@@ -46,12 +46,10 @@ def load_data():
 	annotation_features('slp66', "annotations17", data)
 	#annotation_features('slp67x', "annotations18", data)
 
-	for d in data:
-		print d
-	print len(data)
-
-load_data()
-
+## Initializing list
+data = []
+load_data(data)
+shuffle(data)
 '''
 
 
