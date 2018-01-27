@@ -50,20 +50,6 @@ def load_data(data = []):
 data = []
 load_data(data)
 shuffle(data)
-'''
-
-
-for item in annotations1:
-
-	#if item[1][0] is 'D' :
-		#continue
-
-	if int(item[2]) < 15000:
-		value = []
-		#value.append(original_data[int(item[2])+2])
-		value.append(int(signals2(int(item(2))+2)[0]))
-		value.append(item[7])
-		newdata[k] = value
-		k = k + 1
-'''
-
+#print len(shuffle(data))
+for d in data:
+	print d
