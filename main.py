@@ -1,6 +1,7 @@
 ## library to play with physionet datasets
 import wfdb
 from random import shuffle
+from sklearn import tree, svm
 
 ## Function to extract features from data file and labels from annotaion file and link them.
 ## File name inputs are without formats.
@@ -50,6 +51,24 @@ def load_data(data = []):
 data = []
 load_data(data)
 shuffle(data)
-#print len(shuffle(data))
+training_data = data[0:3000]
+testing_data = data[3001:3777]
+features_train, labels_train = zip(*training_data)
+features_test, labels_test = zip(*testing_data)
+#print features_test, labels_test
+clf = svm.SVC()
+clf = clf.fit(features_train, labels_train)
+pred = clf.predict(features_test)
+print pred
+
+accuracy = 0
+for i in range(len(labels_test)):
+    if(labels_test[i] == pred[i]):
+        accuracy = accuracy + 1
+
+accuracy = float((accuracy*100/len(labels_test)))
+print accuracy
+'''print len(data)
 for d in data:
 	print d
+	'''
