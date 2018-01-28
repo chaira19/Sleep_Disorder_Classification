@@ -1,7 +1,8 @@
 ## library to play with physionet datasets
 import wfdb
 from random import shuffle
-from sklearn import tree, svm
+from sklearn import tree, svm, neural_network
+from sklearn.neural_network import MLPClassifier
 
 ## Function to extract features from data file and labels from annotaion file and link them.
 ## File name inputs are without formats.
@@ -47,7 +48,7 @@ def load_data(data = []):
 	annotation_features('slp66', "annotations17", data)
 	#annotation_features('slp67x', "annotations18", data)
 
-'''
+
 ## Initializing list
 data = []
 load_data(data)
@@ -58,8 +59,8 @@ features_train, labels_train = zip(*training_data)
 features_test, labels_test = zip(*testing_data)
 #print features_test, labels_test
 #clf = svm.SVC()
-
-clf = tree.DecisionTreeClassifier()
+clf = MLPClassifier()
+#clf = tree.DecisionTreeClassifier()
 clf = clf.fit(features_train, labels_train)
 pred = clf.predict(features_test)
 print pred
@@ -72,8 +73,9 @@ for i in range(len(labels_test)):
 accuracy = float((accuracy*100/len(labels_test)))
 print accuracy
 print len(data)
-for d in data:
+'''for d in data:
 	print d
+	'''
 '''
 import network
 import numpy as np
@@ -117,3 +119,4 @@ def sleep_neural_network(features_train, features_test, labels_train, labels_tes
 
 
 sleep_neural_network(features_train, features_test, labels_train, labels_test)
+'''
